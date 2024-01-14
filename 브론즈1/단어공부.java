@@ -1,8 +1,8 @@
-package ºê·ÐÁî1;
+package ë¸Œë¡ ì¦ˆ1;
 
 import java.util.Scanner;
 
-public class ´Ü¾î°øºÎ {
+public class ë‹¨ì–´ê³µë¶€ {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		String line = sc.nextLine().trim();

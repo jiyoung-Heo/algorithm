@@ -1,8 +1,8 @@
-package °ñµå4;
+package ê³¨ë“œ4;
 
 import java.util.Scanner;
 
-public class ÁÖ»çÀ§±¼¸®±â {
+public class ì£¼ì‚¬ìœ„êµ´ë¦¬ê¸° {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
@@ -23,17 +23,17 @@ public class ÁÖ»çÀ§±¼¸®±â {
 		}
 		
 		int currTopNum = 0;
-		int currºÏNum = 0;
-		int curr³²Num = 0;
-		int currµ¿Num = 0;
-		int curr¼­Num = 0;
+		int currë¶Num = 0;
+		int currë‚¨Num = 0;
+		int currë™Num = 0;
+		int currì„œNum = 0;
 		int currBottomNum = 0;
 
 		int pastTopNum = 0;
-		int pastºÏNum = 0;
-		int past³²Num = 0;
-		int pastµ¿Num = 0;
-		int past¼­Num = 0;
+		int pastë¶Num = 0;
+		int pastë‚¨Num = 0;
+		int pastë™Num = 0;
+		int pastì„œNum = 0;
 		int pastBottomNum = 0;
 
 		int currX = startx;
@@ -41,74 +41,74 @@ public class ÁÖ»çÀ§±¼¸®±â {
 
 		for (int i = 0; i < moveArr.length; i++) {
 			pastTopNum = currTopNum;
-			pastºÏNum = currºÏNum;
-			past³²Num = curr³²Num;
-			pastµ¿Num = currµ¿Num;
-			past¼­Num = curr¼­Num;
+			pastë¶Num = currë¶Num;
+			pastë‚¨Num = currë‚¨Num;
+			pastë™Num = currë™Num;
+			pastì„œNum = currì„œNum;
 			pastBottomNum = currBottomNum;
 			if (moveArr[i] == 1) {
 				if (currX + 1 >= m)
 					continue;
 				currX += 1;
-				currBottomNum = pastµ¿Num;
+				currBottomNum = pastë™Num;
 				if (floorArr[currY][currX] == 0) {
 					floorArr[currY][currX] = currBottomNum;
 				} else {
 					currBottomNum = floorArr[currY][currX];
 				}
-				currTopNum = past¼­Num;
-				currµ¿Num = pastTopNum;
-				curr¼­Num = pastBottomNum;
+				currTopNum = pastì„œNum;
+				currë™Num = pastTopNum;
+				currì„œNum = pastBottomNum;
 				System.out.println(currTopNum);
-				// µ¿ [][+1]
+				// ë™ [][+1]
 			} else if (moveArr[i] == 2) {
 				if (currX - 1 < 0)
 					continue;
 				currX -= 1;
-				currBottomNum = past¼­Num;
+				currBottomNum = pastì„œNum;
 				if (floorArr[currY][currX] == 0) {
 					floorArr[currY][currX] = currBottomNum;
 				} else {
 					currBottomNum = floorArr[currY][currX];
 				}
-				currTopNum = pastµ¿Num;
-				currµ¿Num = pastBottomNum;
-				curr¼­Num = pastTopNum;
+				currTopNum = pastë™Num;
+				currë™Num = pastBottomNum;
+				currì„œNum = pastTopNum;
 				System.out.println(currTopNum);
-				// ¼­ [][-1]
+				// ì„œ [][-1]
 			} else if (moveArr[i] == 3) {
 				if (currY - 1 < 0)
 					continue;
 				currY -= 1;
-				currBottomNum = pastºÏNum;
+				currBottomNum = pastë¶Num;
 				if (floorArr[currY][currX] == 0) {
 					floorArr[currY][currX] = currBottomNum;
 				} else {
 					currBottomNum = floorArr[currY][currX];
 				}
-				currTopNum = past³²Num;
-				currºÏNum = pastTopNum;
-				curr³²Num = pastBottomNum;
+				currTopNum = pastë‚¨Num;
+				currë¶Num = pastTopNum;
+				currë‚¨Num = pastBottomNum;
 				System.out.println(currTopNum);
-				// ºÏ [-1][]
+				// ë¶ [-1][]
 			} else if (moveArr[i] == 4) {
 				if (currY + 1 >= n)
 					continue;
 				currY += 1;
-				currBottomNum = past³²Num;
+				currBottomNum = pastë‚¨Num;
 				if (floorArr[currY][currX] == 0) {
 					floorArr[currY][currX] = currBottomNum;
 				} else {
 					currBottomNum = floorArr[currY][currX];
 				}
-				currTopNum = pastºÏNum;
-				currºÏNum = pastBottomNum;
-				curr³²Num = pastTopNum;
+				currTopNum = pastë¶Num;
+				currë¶Num = pastBottomNum;
+				currë‚¨Num = pastTopNum;
 				System.out.println(currTopNum);
-				// ³² [+1][]
+				// ë‚¨ [+1][]
 			}
 		}
-		// ¿À´ä 12¹øÂ°
+		// ì˜¤ë‹µ 12ë²ˆì§¸
 
 	}
 }

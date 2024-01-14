@@ -1,68 +1,68 @@
-package ½Ç¹ö1;
+package ì‹¤ë²„1;
 
 import java.util.*;
 
 //10:11
-public class °æºñ¿ø {
+public class ê²½ë¹„ì› {
 	public static void main(String[] args) {
-//		Ã¹Â° ÁÙ¿¡ ºí·ÏÀÇ °¡·ÎÀÇ ±æÀÌ¿Í ¼¼·ÎÀÇ ±æÀÌ°¡ Â÷·Ê·Î ÁÖ¾îÁø´Ù. 
-//		µÑÂ° ÁÙ¿¡ »óÁ¡ÀÇ °³¼ö°¡ ÁÖ¾îÁø´Ù. 
-//		ºí·ÏÀÇ °¡·ÎÀÇ ±æÀÌ¿Í ¼¼·ÎÀÇ ±æÀÌ, »óÁ¡ÀÇ °³¼ö´Â ¸ðµÎ 100ÀÌÇÏÀÇ ÀÚ¿¬¼öÀÌ´Ù. 
-//		ÀÌ¾î ÇÑ ÁÙ¿¡ ÇÏ³ª¾¿ »óÁ¡ÀÇ À§Ä¡°¡ ÁÖ¾îÁø´Ù. 
-//		»óÁ¡ÀÇ À§Ä¡´Â µÎ °³ÀÇ ÀÚ¿¬¼ö·Î Ç¥½ÃµÈ´Ù. 
-//		Ã¹Â° ¼ö´Â »óÁ¡ÀÌ À§Ä¡ÇÑ ¹æÇâÀ» ³ªÅ¸³»´Âµ¥, 1Àº ºí·ÏÀÇ ºÏÂÊ, 2´Â ºí·ÏÀÇ ³²ÂÊ, 3Àº ºí·ÏÀÇ ¼­ÂÊ, 4´Â ºí·ÏÀÇ µ¿ÂÊ¿¡ »óÁ¡ÀÌ ÀÖÀ½À» ÀÇ¹ÌÇÑ´Ù. 
-//		µÑÂ° ¼ö´Â »óÁ¡ÀÌ ºí·ÏÀÇ ºÏÂÊ ¶Ç´Â ³²ÂÊ¿¡ À§Ä¡ÇÑ °æ¿ì ºí·ÏÀÇ ¿ÞÂÊ °æ°è·ÎºÎÅÍÀÇ °Å¸®¸¦ ³ªÅ¸³»°í, »óÁ¡ÀÌ ºí·ÏÀÇ µ¿ÂÊ ¶Ç´Â ¼­ÂÊ¿¡ À§Ä¡ÇÑ °æ¿ì ºí·ÏÀÇ À§ÂÊ °æ°è·ÎºÎÅÍÀÇ °Å¸®¸¦ ³ªÅ¸³½´Ù. 
-//		¸¶Áö¸· ÁÙ¿¡´Â µ¿±ÙÀÌÀÇ À§Ä¡°¡ »óÁ¡ÀÇ À§Ä¡¿Í °°Àº ¹æ½ÄÀ¸·Î ÁÖ¾îÁø´Ù. 
-//		»óÁ¡ÀÇ À§Ä¡³ª µ¿±ÙÀÌÀÇ À§Ä¡´Â ºí·ÏÀÇ ²ÀÁþÁ¡ÀÌ µÉ ¼ö ¾ø´Ù.
+//		ì²«ì§¸ ì¤„ì— ë¸”ë¡ì˜ ê°€ë¡œì˜ ê¸¸ì´ì™€ ì„¸ë¡œì˜ ê¸¸ì´ê°€ ì°¨ë¡€ë¡œ ì£¼ì–´ì§„ë‹¤. 
+//		ë‘˜ì§¸ ì¤„ì— ìƒì ì˜ ê°œìˆ˜ê°€ ì£¼ì–´ì§„ë‹¤. 
+//		ë¸”ë¡ì˜ ê°€ë¡œì˜ ê¸¸ì´ì™€ ì„¸ë¡œì˜ ê¸¸ì´, ìƒì ì˜ ê°œìˆ˜ëŠ” ëª¨ë‘ 100ì´í•˜ì˜ ìžì—°ìˆ˜ì´ë‹¤. 
+//		ì´ì–´ í•œ ì¤„ì— í•˜ë‚˜ì”© ìƒì ì˜ ìœ„ì¹˜ê°€ ì£¼ì–´ì§„ë‹¤. 
+//		ìƒì ì˜ ìœ„ì¹˜ëŠ” ë‘ ê°œì˜ ìžì—°ìˆ˜ë¡œ í‘œì‹œëœë‹¤. 
+//		ì²«ì§¸ ìˆ˜ëŠ” ìƒì ì´ ìœ„ì¹˜í•œ ë°©í–¥ì„ ë‚˜íƒ€ë‚´ëŠ”ë°, 1ì€ ë¸”ë¡ì˜ ë¶ìª½, 2ëŠ” ë¸”ë¡ì˜ ë‚¨ìª½, 3ì€ ë¸”ë¡ì˜ ì„œìª½, 4ëŠ” ë¸”ë¡ì˜ ë™ìª½ì— ìƒì ì´ ìžˆìŒì„ ì˜ë¯¸í•œë‹¤. 
+//		ë‘˜ì§¸ ìˆ˜ëŠ” ìƒì ì´ ë¸”ë¡ì˜ ë¶ìª½ ë˜ëŠ” ë‚¨ìª½ì— ìœ„ì¹˜í•œ ê²½ìš° ë¸”ë¡ì˜ ì™¼ìª½ ê²½ê³„ë¡œë¶€í„°ì˜ ê±°ë¦¬ë¥¼ ë‚˜íƒ€ë‚´ê³ , ìƒì ì´ ë¸”ë¡ì˜ ë™ìª½ ë˜ëŠ” ì„œìª½ì— ìœ„ì¹˜í•œ ê²½ìš° ë¸”ë¡ì˜ ìœ„ìª½ ê²½ê³„ë¡œë¶€í„°ì˜ ê±°ë¦¬ë¥¼ ë‚˜íƒ€ë‚¸ë‹¤. 
+//		ë§ˆì§€ë§‰ ì¤„ì—ëŠ” ë™ê·¼ì´ì˜ ìœ„ì¹˜ê°€ ìƒì ì˜ ìœ„ì¹˜ì™€ ê°™ì€ ë°©ì‹ìœ¼ë¡œ ì£¼ì–´ì§„ë‹¤. 
+//		ìƒì ì˜ ìœ„ì¹˜ë‚˜ ë™ê·¼ì´ì˜ ìœ„ì¹˜ëŠ” ë¸”ë¡ì˜ ê¼­ì§“ì ì´ ë  ìˆ˜ ì—†ë‹¤.
 		Scanner sc = new Scanner(System.in);
-		// °¡·Î
+		// ê°€ë¡œ
 		int width = sc.nextInt();
-		// ¼¼·Î
+		// ì„¸ë¡œ
 		int height = sc.nextInt();
-		// »óÁ¡°³¼ö
+		// ìƒì ê°œìˆ˜
 		int count = sc.nextInt();
 
 		ArrayList<int[]> list = new ArrayList<>();
 		for (int i = 0; i < count; i++) {
-			// °¢ »óÁ¡ÀÇ À§Ä¡ ÁÂÇ¥·Î ÀúÀå
-			int ¹æÇâ = sc.nextInt();
-			int ¿ÞÂÊ_°¡·Î12orÀ§ÂÊ_¼¼·Î34À¸·ÎºÎÅÍÀÇ°Å¸® = sc.nextInt();
+			// ê° ìƒì ì˜ ìœ„ì¹˜ ì¢Œí‘œë¡œ ì €ìž¥
+			int ë°©í–¥ = sc.nextInt();
+			int ì™¼ìª½_ê°€ë¡œ12orìœ„ìª½_ì„¸ë¡œ34ìœ¼ë¡œë¶€í„°ì˜ê±°ë¦¬ = sc.nextInt();
 
-			list.add(xy(width,height,¹æÇâ, ¿ÞÂÊ_°¡·Î12orÀ§ÂÊ_¼¼·Î34À¸·ÎºÎÅÍÀÇ°Å¸®));
+			list.add(xy(width,height,ë°©í–¥, ì™¼ìª½_ê°€ë¡œ12orìœ„ìª½_ì„¸ë¡œ34ìœ¼ë¡œë¶€í„°ì˜ê±°ë¦¬));
 		}
 
-		// µ¿±ÙÀ§Ä¡
-		int dong¹æÇâ = sc.nextInt();
-		int dong°Å¸® = sc.nextInt();
+		// ë™ê·¼ìœ„ì¹˜
+		int dongë°©í–¥ = sc.nextInt();
+		int dongê±°ë¦¬ = sc.nextInt();
 		
-		// µ¿±ÙÁÂÇ¥
-		int[] µ¿arr = xy(width,height,dong¹æÇâ, dong°Å¸®);
+		// ë™ê·¼ì¢Œí‘œ
+		int[] ë™arr = xy(width,height,dongë°©í–¥, dongê±°ë¦¬);
 		
 		for (int i = 0; i < count; i++) {
 			int[] arr = list.get(i);
 			
 		}
 
-//		Ã¹Â° ÁÙ¿¡ µ¿±ÙÀÌÀÇ À§Ä¡¿Í °¢ »óÁ¡ »çÀÌÀÇ ÃÖ´Ü °Å¸®ÀÇ ÇÕÀ» Ãâ·ÂÇÑ´Ù.
+//		ì²«ì§¸ ì¤„ì— ë™ê·¼ì´ì˜ ìœ„ì¹˜ì™€ ê° ìƒì  ì‚¬ì´ì˜ ìµœë‹¨ ê±°ë¦¬ì˜ í•©ì„ ì¶œë ¥í•œë‹¤.
 	}
 	
-	public static int[] xy(int width, int height, int ¹æÇâ, int ¿ÞÂÊ_°¡·Î12orÀ§ÂÊ_¼¼·Î34À¸·ÎºÎÅÍÀÇ°Å¸®) {
+	public static int[] xy(int width, int height, int ë°©í–¥, int ì™¼ìª½_ê°€ë¡œ12orìœ„ìª½_ì„¸ë¡œ34ìœ¼ë¡œë¶€í„°ì˜ê±°ë¦¬) {
 		int[] arr = new int[2];
 		
-		if (¹æÇâ == 1) {
-			// xÁÂÇ¥
-			arr[0] = ¿ÞÂÊ_°¡·Î12orÀ§ÂÊ_¼¼·Î34À¸·ÎºÎÅÍÀÇ°Å¸®;
-			// yÁÂÇ¥
+		if (ë°©í–¥ == 1) {
+			// xì¢Œí‘œ
+			arr[0] = ì™¼ìª½_ê°€ë¡œ12orìœ„ìª½_ì„¸ë¡œ34ìœ¼ë¡œë¶€í„°ì˜ê±°ë¦¬;
+			// yì¢Œí‘œ
 			arr[1] = height;
-		} else if (¹æÇâ == 2) {
-			arr[0] = ¿ÞÂÊ_°¡·Î12orÀ§ÂÊ_¼¼·Î34À¸·ÎºÎÅÍÀÇ°Å¸®;
+		} else if (ë°©í–¥ == 2) {
+			arr[0] = ì™¼ìª½_ê°€ë¡œ12orìœ„ìª½_ì„¸ë¡œ34ìœ¼ë¡œë¶€í„°ì˜ê±°ë¦¬;
 			arr[1] = 0;
-		} else if (¹æÇâ == 3) {
+		} else if (ë°©í–¥ == 3) {
 			arr[0] = 0;
-			arr[1] = height - ¿ÞÂÊ_°¡·Î12orÀ§ÂÊ_¼¼·Î34À¸·ÎºÎÅÍÀÇ°Å¸®;
-		} else if (¹æÇâ == 4) {
+			arr[1] = height - ì™¼ìª½_ê°€ë¡œ12orìœ„ìª½_ì„¸ë¡œ34ìœ¼ë¡œë¶€í„°ì˜ê±°ë¦¬;
+		} else if (ë°©í–¥ == 4) {
 			arr[0] = width;
-			arr[1] = height - ¿ÞÂÊ_°¡·Î12orÀ§ÂÊ_¼¼·Î34À¸·ÎºÎÅÍÀÇ°Å¸®;
+			arr[1] = height - ì™¼ìª½_ê°€ë¡œ12orìœ„ìª½_ì„¸ë¡œ34ìœ¼ë¡œë¶€í„°ì˜ê±°ë¦¬;
 		}
 		
 		return arr;
