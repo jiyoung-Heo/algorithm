@@ -71,8 +71,12 @@ public class 양치기꿍 {
 		for (int i = 0; i < dirX.length; i++) {
 			int nowX = x + dirX[i];
 			int nowY = y + dirY[i];
-
-			if (nowX > 0 && nowY > 0 && nowX < r && nowY < c && ground[nowX][nowY] != '#' && !visit[nowX][nowY]) {
+			
+			if (nowX >= r || nowY >= c || nowX < 0 || nowY < 0) {
+				continue;
+			}
+			
+			if (ground[nowX][nowY] != '#' && !visit[nowX][nowY]) {
 				dfs(nowX, nowY);
 			}
 		}
