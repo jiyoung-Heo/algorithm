@@ -59,7 +59,11 @@ public class 섬의개수 {
 		for (int i = 0; i < 8; i++) {
 			int nowX = dirX[i] + x;
 			int nowY = dirY[i] + y;
-			if (nowX < h && nowY < w && nowX >= 0 && nowY >= 0 && visit[nowX][nowY] == false && land[nowX][nowY] == 1) {
+			
+			if (nowX >= h || nowY >= w || nowX < 0 || nowY < 0) {
+				continue;
+			}
+			if(!visit[nowX][nowY] && land[nowX][nowY] == 1) {
 				dfs(nowX, nowY);
 			}
 		}
