@@ -11,66 +11,61 @@ public class 섬의개수 {
 	static int w;
 	static int h;
 	static int count;
+	static int dirX[] = { 0, 0, -1, 1, -1, 1, -1, 1 };
+	static int dirY[] = { -1, 1, 0, 0, -1, 1, 1, -1 };
 
 	public static void main(String[] args) throws IOException {
+		StringBuilder sb = new StringBuilder();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		boolean flag = true;
-		
-		while (flag) {
-			StringTokenizer st = new StringTokenizer(br.readLine());
+		StringTokenizer st;
+
+		while (true) {
+			st = new StringTokenizer(br.readLine());
 			w = Integer.parseInt(st.nextToken());
 			h = Integer.parseInt(st.nextToken());
 			count = 0;
-			
-			if(w == 0 && h == 0) {
-				flag = false;
+
+			if (w == 0 && h == 0) {
 				break;
 			}
-			
+
 			land = new int[h][w];
 			visit = new boolean[h][w];
-			
+
 			for (int i = 0; i < h; i++) {
-				StringTokenizer st1 = new StringTokenizer(br.readLine());
+				st = new StringTokenizer(br.readLine());
+
 				for (int j = 0; j < w; j++) {
-					int num = Integer.parseInt(st1.nextToken());
-					land[i][j] = num;
+					land[i][j] = Integer.parseInt(st.nextToken());
 				}
 			}
-			
+
 			for (int i = 0; i < h; i++) {
 				for (int j = 0; j < w; j++) {
-					if (land[i][j] == 1 && visit[i][j] == false) {
+					if (visit[i][j] == false && land[i][j] == 1) {
 						dfs(i, j);
 						count++;
 					}
 				}
 			}
-			System.out.println(count);
-			
+			sb.append(count).append('\n');
 		}
+		System.out.println(sb);
 	}
 
-	public static void dfs(int i, int j) {
-		if (i >= h || j >= w || i < 0 || j < 0) {
-			return;
-		}
-		if (visit[i][j] == false) {
-			if (land[i][j] == 1) {
-				visit[i][j] = true;
-			}else {
-				return;
+	public static void dfs(int x, int y) {
+		visit[x][y] = true;
+
+		for (int i = 0; i < 8; i++) {
+			int nowX = dirX[i] + x;
+			int nowY = dirY[i] + y;
+			
+			if (nowX >= h || nowY >= w || nowX < 0 || nowY < 0) {
+				continue;
 			}
-		}else {
-			return;
+			if(!visit[nowX][nowY] && land[nowX][nowY] == 1) {
+				dfs(nowX, nowY);
+			}
 		}
-		dfs(i + 1, j);
-		dfs(i - 1, j);
-		dfs(i, j + 1);
-		dfs(i, j - 1);
-		dfs(i + 1, j + 1);
-		dfs(i - 1, j - 1);
-		dfs(i + 1, j - 1);
-		dfs(i - 1, j + 1);
 	}
 }
