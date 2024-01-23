@@ -3,7 +3,6 @@ package 골드5;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
@@ -13,7 +12,8 @@ public class _2194_유닛이동시키기 {
 	static int[] dirX = { 1, -1, 0, 0 };
 	static int[] dirY = { 0, 0, 1, -1 };
 	static int[] endPoint;
-	static ArrayList<int[]> list;
+	// 장애물배열
+	static int[][] arr;
 	static int min;
 
 	public static void main(String[] args) throws IOException {
@@ -29,12 +29,13 @@ public class _2194_유닛이동시키기 {
 		// 장애물이 설치된 개수
 		int k = Integer.parseInt(st.nextToken());
 
-		list = new ArrayList<int[]>();
+		arr = new int[k][2];
 		for (int i = 0; i < k; i++) {
 			st = new StringTokenizer(br.readLine());
 			int x = Integer.parseInt(st.nextToken());
 			int y = Integer.parseInt(st.nextToken());
-			list.add(new int[] { x, y });
+			arr[i][0] = x;
+			arr[i][1] = y;
 		}
 		st = new StringTokenizer(br.readLine());
 		int[] startPoint = new int[] { Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()) };
@@ -42,7 +43,9 @@ public class _2194_유닛이동시키기 {
 		endPoint = new int[] { Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()) };
 
 		min = Integer.MAX_VALUE;
+
 		bfs(startPoint[0], startPoint[1]);
+
 		System.out.println(min == Integer.MAX_VALUE ? -1 : min);
 	}
 
@@ -72,10 +75,10 @@ public class _2194_유닛이동시키기 {
 
 				int failCount = 0;
 
-				for (int j = 0; j < list.size(); j++) {
+				for (int j = 0; j < arr.length; j++) {
 					// 장애물좌표
-					int tempx = list.get(j)[0];
-					int tempy = list.get(j)[1];
+					int tempx = arr[j][0];
+					int tempy = arr[j][1];
 					// 장애물에 걸리는 경우
 					if (tempx >= newPointX && tempx <= newPointendX && tempy >= newPointY && tempy <= newPointendY) {
 						failCount++;
