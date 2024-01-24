@@ -3,19 +3,18 @@ package 골드5;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayDeque;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-public class 빠른무작위숫자탐색 {
+public class 빠른무작위숫자탐색_25688 {
 	static int[][] arr;
 	static int number = 1;
 	static int[] dirX = { 1, -1, 0, 0 };
 	static int[] dirY = { 0, 0, 1, -1 };
-	
-	static Set<Integer> countSet;
 	static int[][] countArr;
 	static int[][] visitCount;
 
@@ -23,7 +22,6 @@ public class 빠른무작위숫자탐색 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		arr = new int[5][5];
-		countSet = new HashSet<Integer>();
 		countArr = new int[5][5];
 		visitCount = new int[5][5];
 
@@ -47,24 +45,25 @@ public class 빠른무작위숫자탐색 {
 	}
 
 	public static int bfs(int x, int y) {
-		Queue<int[]> que = new LinkedList<int[]>();
+		Queue<Point> que = new ArrayDeque<Point>();
 
-		que.add(new int[] { x, y });
+		que.add(new Point(x, y, 0, new HashSet<Integer>()));
 
 		while (!que.isEmpty()) {
-			int[] xyArr = que.poll();
+			Point xyPoint = que.poll();
 
-			int currX = xyArr[0];
-			int currY = xyArr[1];
-			
+			int currX = xyPoint.x;
+			int currY = xyPoint.y;
+			HashSet<Integer> set = xyPoint.visitNumberSet;
+
 			visitCount[currX][currY]++;
-			
+
 			if (arr[currX][currY] >= 1 && arr[currX][currY] <= 6) {
-				countSet.add(arr[currX][currY]);
+				set.add(arr[currX][currY]);
 			}
 
-			if (countSet.size() == 6)
-				return countArr[currX][currY];
+			if (set.size() == 6)
+				return xyPoint.count;
 
 			if (visitCount[currX][currY] < 6) {
 				for (int i = 0; i < 4; i++) {
@@ -77,13 +76,24 @@ public class 빠른무작위숫자탐색 {
 						continue;
 
 					if (arr[nextX][nextY] != -1) {
-						countArr[nextX][nextY] = countArr[currX][currY] + 1;
-
-						que.add(new int[] { nextX, nextY });
+						que.add(new Point(nextX, nextY, xyPoint.count + 1, set));
 					}
 				}
 			}
 		}
 		return -1;
+	}
+
+	static class Point {
+		int x, y, count;
+		HashSet<Integer> visitNumberSet;
+
+		public Point(int x, int y, int count, HashSet<Integer> visitNumberSet) {
+			super();
+			this.x = x;
+			this.y = y;
+			this.count = count;
+			this.visitNumberSet = visitNumberSet;
+		}
 	}
 }
