@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class _10917_YourLife {
+public class YourLife_10917 {
 	static ArrayList<Integer>[] list;
 	static int n;
 	static boolean[] visited;
