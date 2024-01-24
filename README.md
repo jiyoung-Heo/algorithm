@@ -3,7 +3,7 @@
 -----------------
 > commit conventions   
 
-**(number)(type): (level) (title) (reason)**   
+**(type): (number) (level) (title) (reason)**   
 
 fail의 경우 reason작성할것
 
