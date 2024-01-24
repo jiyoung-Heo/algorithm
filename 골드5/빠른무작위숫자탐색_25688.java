@@ -15,14 +15,12 @@ public class 빠른무작위숫자탐색_25688 {
 	static int number = 1;
 	static int[] dirX = { 1, -1, 0, 0 };
 	static int[] dirY = { 0, 0, 1, -1 };
-	static int[][] countArr;
 	static int[][] visitCount;
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		arr = new int[5][5];
-		countArr = new int[5][5];
 		visitCount = new int[5][5];
 
 		for (int i = 0; i < 5; i++) {
