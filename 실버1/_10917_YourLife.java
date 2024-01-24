@@ -10,7 +10,8 @@ import java.util.StringTokenizer;
 
 public class _10917_YourLife {
 	static ArrayList<Integer>[] list;
-	static int n, min;
+	static int n;
+	static boolean[] visited;
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -20,42 +21,43 @@ public class _10917_YourLife {
 		n = Integer.parseInt(st.nextToken());
 		int m = Integer.parseInt(st.nextToken());
 
-		min = Integer.MAX_VALUE;
-
 		list = new ArrayList[n + 1];
 		for (int i = 1; i < n + 1; i++) {
 			list[i] = new ArrayList<Integer>();
 		}
 
-		for (int i = 1; i < n + 1; i++) {
+		for (int i = 1; i < m + 1; i++) {
 			st = new StringTokenizer(br.readLine());
 			int x = Integer.parseInt(st.nextToken());
 			int y = Integer.parseInt(st.nextToken());
 			list[x].add(y);
 		}
 
-		bfs(1);
+		visited = new boolean[n + 1];
+		int result = bfs(1);
 
-		System.out.println(min == Integer.MAX_VALUE ? -1 : min);
+		System.out.println(result);
 	}
 
-	public static void bfs(int node) {
+	public static int bfs(int node) {
 		Queue<Point> que = new LinkedList<>();
-		que.add(new Point(node, 1));
+		que.add(new Point(node, 0));
 
 		while (!que.isEmpty()) {
 			Point point = que.poll();
-			ArrayList<Integer> nodeArr = list[point.node];
-			for (int i = 0; i < nodeArr.size(); i++) {
-				int a = nodeArr.get(i);
-				if (a == n) {
-					if (min > point.depth) {
-						min = point.depth;
-					}
+
+			for (int dreamNode : list[point.node]) {
+				if (visited[dreamNode]) {
+					continue;
 				}
-				que.add(new Point(a, point.depth + 1));
+				if (dreamNode == n) {
+					return point.depth + 1;
+				}
+				visited[dreamNode] = true;
+				que.add(new Point(dreamNode, point.depth + 1));
 			}
 		}
+		return -1;
 	}
 
 	static class Point {
