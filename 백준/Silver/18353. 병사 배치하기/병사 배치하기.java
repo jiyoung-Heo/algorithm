@@ -17,14 +17,13 @@ public class Main {
 		int max = 1;
 		dp[0] = 1;
 		for (int i = 1; i < powerList.size(); i++) {
-			dp[i] = 1;
 			for (int j = 0; j < i; j++) {
 				if (powerList.get(j) > powerList.get(i)) {
 					dp[i] = Math.max(dp[i], dp[j] + 1);
 					max = Math.max(dp[i], max);
 					continue;
 				}
-//				dp[i] = 1;
+				dp[i] = Math.max(dp[i], 1);
 			}
 		}
 		System.out.println(powerList.size() - max);
