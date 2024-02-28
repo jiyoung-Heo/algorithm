@@ -40,8 +40,8 @@ public class Main {
 							}
 						}
 						if (cnt == 2) {
-							System.out.println(String.valueOf(tmp));
-							System.exit(0);
+							ans = String.valueOf(tmp);
+							break;
 						}
 					}
 				}
