@@ -30,12 +30,13 @@ public class Main {
 						for (int l = 1; l < 3; l++) {
 							int nx = i + (dx[k] * l);
 							int ny = j + (dy[k] * l);
-							if (nx < 0 || ny < 0 || nx >= N || ny >= N) {
-								break;
-							}
-							if (tmp == map[nx][ny]) {
-								cnt++;
-							} else {
+							if (nx >= 0 && ny >= 0 && nx < N && ny < N) {
+								if (tmp == map[nx][ny]) {
+									cnt++;
+								} else {
+									break;
+								}
+							}else {
 								break;
 							}
 						}
