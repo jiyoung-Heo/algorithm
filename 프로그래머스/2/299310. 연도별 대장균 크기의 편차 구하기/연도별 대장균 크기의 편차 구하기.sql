@@ -1,2 +1,1 @@
--- 코드를 작성해주세요
-select temp.yd YEAR, (temp.mc - e.size_of_colony) YEAR_dEV,  e.id ID from ecoli_data e left outer join (select max(size_of_colony) mc,year(differentiation_date) yd from ecoli_data group by year(differentiation_date)) temp on year(e.differentiation_date) = temp.yd order by yd asc, YEAR_dEV asc;
+select temp.yd YEAR, (temp.mc - e.size_of_colony) YEAR_dEV,  e.id ID from ecoli_data e left outer join (select max(size_of_colony) mc,year(differentiation_date) yd from ecoli_data group by year(differentiation_date)) temp on year(e.differentiation_date) = temp.yd order by yd asc, YEAR_dEV asc ;
