@@ -31,12 +31,6 @@ public class Main {
 		int currAmount = 0;
 		// 빨간색 오른쪽 끝으로 이동시킨 경우
 		for (int i = arr.length - 1; i >= 0; i--) {
-			if (i == arr.length - 1) {
-				if (arr[i] == 'R') {
-					currAmount++;
-					continue;
-				}
-			}
 			if (redCount < currAmount) {
 				break;
 			}
@@ -54,14 +48,8 @@ public class Main {
 
 		int leftCount = 0;
 		currAmount = 0;
-		// 빨간색 왼쪽 끝으로 이동시킨 경우
+		// 파란색 왼쪽 끝으로 이동시킨 경우
 		for (int i = 0; i < arr2.length; i++) {
-			if (i == 0) {
-				if (arr2[i] == 'R') {
-					currAmount++;
-					continue;
-				}
-			}
 			if (redCount < currAmount) {
 				break;
 			}
@@ -79,9 +67,9 @@ public class Main {
 
 		int blueRightCount = 0;
 		currAmount = 0;
-		// 빨간색 오른쪽 끝으로 이동시킨 경우
+		// 파란색 오른쪽 끝으로 이동시킨 경우
 		for (int i = arr3.length - 1; i >= 0; i--) {
-			if (redCount < currAmount) {
+			if (blueCount < currAmount) {
 				break;
 			}
 			if (arr3[i] == 'B') {
@@ -100,13 +88,7 @@ public class Main {
 		currAmount = 0;
 		// 빨간색 왼쪽 끝으로 이동시킨 경우
 		for (int i = 0; i < arr4.length; i++) {
-			if (i == 0) {
-				if (arr4[i] == 'B') {
-					currAmount++;
-					continue;
-				}
-			}
-			if (redCount < currAmount) {
+			if (blueCount < currAmount) {
 				break;
 			}
 			if (arr4[i] == 'B') {
