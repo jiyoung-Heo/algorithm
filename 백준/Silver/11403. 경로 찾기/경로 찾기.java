@@ -1,0 +1,47 @@
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new java.io.OutputStreamWriter(System.out));
+        StringTokenizer st;
+
+        int n = Integer.parseInt(br.readLine());
+        int[][] map = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < n; j++) {
+                int num = Integer.parseInt(st.nextToken());
+                map[i][j] = num;
+            }
+        }
+        for (int k = 0; k < n; k++) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (map[i][k] == 1 && map[k][j] == 1) {
+                        map[i][j] = 1;
+                    }
+                }
+            }
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < n; j++) {
+                sb.append(map[i][j] + " ");
+            }
+            sb.append("\n");
+        }
+
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
+        br.close();
+
+    }
+}
